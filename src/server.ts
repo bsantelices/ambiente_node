@@ -29,9 +29,12 @@ const getUsers = async () => {
   console.log(users)
 }
 // saveUser()
-getUsers()
+// getUsers()
 // saveUser()
-import fetch from 'node-fetch'
-fetch('http://example.com/movies.json')
-  .then(response => response.json())
-  .then(data => console.log(data))
+import axios from 'axios'
+
+const getApi = async () => {
+  const data = await axios.get('https://pokeapi.co/api/v2/generation/1/')
+  console.log(data.data.pokemon_species)
+}
+getApi()
