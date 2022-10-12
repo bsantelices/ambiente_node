@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import app from './app'
-import { UserModel } from './models/User'
 
 const PORT = 3333
 
@@ -14,27 +13,10 @@ const connectDB = async () => {
 }
 connectDB()
 
-const saveUser = async () => {
-  const user = await UserModel.create({
-    firstname: 'Bryan2',
-    lastname: 'Santelices2',
-    email: 'bsantelicesc2@gmail.com',
-    password: 'secret2',
-  })
-  console.log({ user })
-}
+import { getApi, getUsers } from './functions'
 
-const getUsers = async () => {
-  const users = await UserModel.find({})
-  console.log(users)
+const main = async () => {
+  const pokemons = await getApi()
+  console.log(await getUsers())
 }
-// saveUser()
-// getUsers()
-// saveUser()
-import axios from 'axios'
-
-const getApi = async () => {
-  const data = await axios.get('https://pokeapi.co/api/v2/generation/1/')
-  console.log(data.data.pokemon_species)
-}
-getApi()
+main()
