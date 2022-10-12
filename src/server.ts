@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import app from './app'
+import axios from 'axios'
 
 const PORT = 3333
 
@@ -13,10 +14,11 @@ const connectDB = async () => {
 }
 connectDB()
 
-import { getApi, getUsers } from './functions'
+import { getApi, getUsers, useScrapping } from './functions'
 
 const main = async () => {
   const pokemons = await getApi()
-  console.log(await getUsers())
+  await useScrapping()
+  // console.log(content)
 }
 main()
