@@ -13,10 +13,5 @@ const connectDB = async () => {
 }
 connectDB()
 
-import { getApi, getUsers } from './functions'
-
-const main = async () => {
-  const pokemons = await getApi()
-  console.log(await getUsers())
-}
+const main = () => {}
 main()
